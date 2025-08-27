@@ -23,16 +23,16 @@ export default function ContactSection() {
       apiRequest("POST", "/api/contact", data),
     onSuccess: () => {
       toast({
-        title: "Success!",
+        title: "Message Sent ✅",
         description:
-          "Thank you for your message! We will get back to you soon.",
+          "Thank you for reaching out! Our team will connect with you within 24 hours.",
       });
       setFormData({ name: "", email: "", service: "", message: "" });
     },
     onError: () => {
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
+        title: "Submission Failed ❌",
+        description: "Please try again or email us directly.",
         variant: "destructive",
       });
     },
@@ -55,78 +55,79 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="py-20 bg-white" data-testid="contact-section">
-      <div className="container mx-auto px-6">
+    <section className="py-20 bg-gradient-to-b from-gray-50 to-white" data-testid="contact-section">
+      <div className="container mx-auto px-6 lg:px-12">
+        {/* Header */}
         <div className="text-center mb-16">
           <h2
-            className="text-3xl lg:text-4xl font-bold text-dark-gray mb-6"
+            className="text-3xl lg:text-5xl font-bold text-dark-gray mb-6 leading-snug"
             data-testid="text-contact-title"
           >
-            Customizable coverage options for businesses of all types and sizes
+            Let’s Build Something <span className="text-orange">Great</span> Together
           </h2>
           <p
-            className="text-xl text-text-gray max-w-3xl mx-auto"
+            className="text-lg lg:text-xl text-text-gray max-w-2xl mx-auto leading-relaxed"
             data-testid="text-contact-subtitle"
           >
-            Let's start building your custom IT solution today. Our team is
-            ready to turn your vision into reality.
+            Have a project in mind? Share your vision with us and our experts
+            will craft tailored solutions that drive results.
           </p>
         </div>
 
+        {/* Grid */}
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <div ref={leftRef as any}>
+          {/* Contact Info */}
+          <div ref={leftRef as any} className="space-y-10">
             <h3
-              className="text-2xl font-bold text-dark-gray mb-6"
+              className="text-2xl font-semibold text-dark-gray"
               data-testid="text-get-in-touch"
             >
-              Get in Touch
+              Our Contact Information
             </h3>
-            <div className="space-y-6 mb-8">
-              <div
-                className="flex items-center"
-                data-testid="contact-info-address"
-              >
-                <div className="w-12 h-12 bg-orange/10 rounded-lg flex items-center justify-center mr-4">
+            <p className="text-text-gray">
+              Reach out directly or fill out the form and we’ll get back to you promptly.
+            </p>
+
+            <div className="space-y-6">
+              <div className="flex items-center">
+                <div className="w-14 h-14 bg-orange/10 rounded-lg flex items-center justify-center mr-4">
                   <MapPin className="w-6 h-6 text-orange" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-dark-gray">Address</h4>
+                  <h4 className="font-semibold text-dark-gray">Office Address</h4>
                   <p className="text-text-gray">
                     123 Tech Street, Innovation District, CA 90210
                   </p>
                 </div>
               </div>
-              <div
-                className="flex items-center"
-                data-testid="contact-info-phone"
-              >
-                <div className="w-12 h-12 bg-orange/10 rounded-lg flex items-center justify-center mr-4">
+
+              <div className="flex items-center">
+                <div className="w-14 h-14 bg-orange/10 rounded-lg flex items-center justify-center mr-4">
                   <Phone className="w-6 h-6 text-orange" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-dark-gray">Phone</h4>
-                  <p className="text-text-gray">+1 (555) 123-4567</p>
+                  <h4 className="font-semibold text-dark-gray">Call Us</h4>
+                  <p className="text-text-gray">+1 (908) 205-1993</p>
                 </div>
               </div>
-              <div
-                className="flex items-center"
-                data-testid="contact-info-email"
-              >
-                <div className="w-12 h-12 bg-orange/10 rounded-lg flex items-center justify-center mr-4">
+
+              <div className="flex items-center">
+                <div className="w-14 h-14 bg-orange/10 rounded-lg flex items-center justify-center mr-4">
                   <Mail className="w-6 h-6 text-orange" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-dark-gray">Email</h4>
-                  <p className="text-text-gray">contact@DesignDynasty.com</p>
+                  <h4 className="font-semibold text-dark-gray">Email Us</h4>
+                  <p className="text-text-gray text-[15px]">designdynasty84@gmail.com</p>
                 </div>
               </div>
             </div>
           </div>
 
+          {/* Contact Form */}
           <div ref={rightRef as any}>
             <form
               onSubmit={handleSubmit}
-              className="space-y-6"
+              className="space-y-6 p-8 px-0 w-[100%]"
               data-testid="form-contact"
             >
               <div>
@@ -142,12 +143,13 @@ export default function ContactSection() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange focus:border-transparent transition-colors"
-                  placeholder="Your full name"
+                  className="w-[100%] px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange focus:border-transparent transition-all"
+                  placeholder="John Doe"
                   required
                   data-testid="input-name"
                 />
               </div>
+
               <div>
                 <label
                   htmlFor="email"
@@ -161,12 +163,13 @@ export default function ContactSection() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange focus:border-transparent transition-all"
                   placeholder="your@email.com"
                   required
                   data-testid="input-email"
                 />
               </div>
+
               <div>
                 <label
                   htmlFor="service"
@@ -179,19 +182,18 @@ export default function ContactSection() {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange focus:border-transparent transition-all"
                   required
                   data-testid="select-service"
                 >
                   <option value="">Select a service</option>
                   <option value="web-development">Web Development</option>
                   <option value="graphic-design">Graphic Design</option>
-                  <option value="mobile-development">
-                    Mobile App Development
-                  </option>
-                  <option value="consultation">Consultation</option>
+                  <option value="mobile-development">Mobile App Development</option>
+                  <option value="consultation">IT Consultation</option>
                 </select>
               </div>
+
               <div>
                 <label
                   htmlFor="message"
@@ -205,12 +207,13 @@ export default function ContactSection() {
                   value={formData.message}
                   onChange={handleChange}
                   rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange focus:border-transparent transition-colors"
-                  placeholder="Tell us about your project..."
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange focus:border-transparent transition-all"
+                  placeholder="Tell us about your project goals, requirements, and timeline..."
                   required
                   data-testid="textarea-message"
                 />
               </div>
+
               <button
                 type="submit"
                 disabled={submitContact.isPending}
@@ -226,3 +229,4 @@ export default function ContactSection() {
     </section>
   );
 }
+  

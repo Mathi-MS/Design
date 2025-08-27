@@ -199,13 +199,13 @@ export default function WebDevelopment() {
                 >
                   Get a Quote
                 </Link>
-                <Link
+                {/* <Link
                   href="/portfolio"
                   className="border-2 border-white text-white hover:bg-white hover:text-navy px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-all w-full sm:w-auto text-center"
                   data-testid="button-view-portfolio"
                 >
                   View Portfolio
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
@@ -385,7 +385,7 @@ export default function WebDevelopment() {
         </section>
 
         {/* Technologies Section */}
-        <section
+        {/* <section
           className="py-16 md:py-20 bg-white"
           data-testid="web-dev-technologies"
         >
@@ -429,10 +429,10 @@ export default function WebDevelopment() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Case Studies Section */}
-        <section
+        {/* <section
           className="py-20 bg-light-gray"
           data-testid="web-dev-case-studies"
         >
@@ -481,7 +481,7 @@ export default function WebDevelopment() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* CTA Section */}
         <section
@@ -510,13 +510,13 @@ export default function WebDevelopment() {
               >
                 Start Your Project
               </Link>
-              <Link
+              {/* <Link
                 href="/pricing"
                 className="border-2 border-white text-white hover:bg-white hover:text-navy px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-all w-full sm:w-auto text-center"
                 data-testid="button-view-pricing"
               >
                 View Pricing
-              </Link>
+              </Link> */}
             </div>
           </div>
         </section>

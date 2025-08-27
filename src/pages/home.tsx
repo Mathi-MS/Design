@@ -4,10 +4,12 @@ import Footer from "@/components/layout/footer";
 import HeroSection from "@/components/home/hero-section";
 import AboutSection from "@/components/home/about-section";
 import ServicesSection from "@/components/home/services-section";
-import PortfolioSection from "@/components/home/portfolio-section";
-import PricingSection from "@/components/home/pricing-section";
+// import PortfolioSection from "@/components/home/portfolio-section";
+// import PricingSection from "@/components/home/pricing-section";
 import TestimonialsSection from "@/components/home/testimonials-section";
 import ContactSection from "@/components/home/contact-section";
+import BlogHome from "./BlogHome";
+import FAQ from "./faq";
 
 export default function Home() {
   useEffect(() => {
@@ -28,9 +30,11 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
-        <PortfolioSection />
-        <PricingSection />
+        {/* <PortfolioSection /> */}
+        {/* <PricingSection /> */}
         <TestimonialsSection />
+        {/* <BlogHome /> */}
+        <FAQ />
         <ContactSection />
       </main>
       <Footer />

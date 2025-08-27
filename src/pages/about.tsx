@@ -367,7 +367,7 @@ export default function About() {
         </section>
 
         {/* Team Section */}
-        <section
+        {/* <section
           className="py-16 md:py-20 bg-light-gray"
           data-testid="team-section"
         >
@@ -433,7 +433,7 @@ export default function About() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Values Section */}
         <section className="py-20 bg-light-gray" data-testid="values-section">

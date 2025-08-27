@@ -1,82 +1,97 @@
 import { useGSAPAnimation } from "@/hooks/use-gsap";
 import { fadeUpAnimation } from "@/lib/gsap-utils";
 import { Link } from "wouter";
-import { Code, Palette, Smartphone, TrendingUp, ShoppingCart } from "lucide-react";
+import { Code, Palette, Smartphone } from "lucide-react";
 
 const services = [
   {
     icon: Code,
     title: "Web Development",
-    description: "Custom web applications built with modern frameworks and technologies for optimal performance.",
-    href: "/services/web-development"
-  },
-  {
-    icon: TrendingUp,
-    title: "Digital Marketing",
-    description: "Data-driven marketing strategies that increase brand awareness and drive revenue growth.",
-    href: "/services/digital-marketing"
-  },
-  {
-    icon: ShoppingCart,
-    title: "E-commerce Solutions",
-    description: "Complete online stores and e-commerce platforms designed to maximize conversions.",
-    href: "/services/ecommerce-solutions"
+    description:
+      "High-performing, scalable, and secure websites built with modern technologies to help your business stand out online.",
+    href: "/services/web-development",
   },
   {
     icon: Palette,
     title: "Graphic Design",
-    description: "Creative visual solutions that communicate your brand message effectively and professionally.",
-    href: "/services/graphic-design"
+    description:
+      "Creative and impactful visual designs that strengthen your brand identity and engage your audience.",
+    href: "/services/graphic-design",
   },
   {
     icon: Smartphone,
     title: "Mobile App Development",
-    description: "Native and cross-platform mobile applications that deliver exceptional user experiences.",
-    href: "/services/mobile-development"
-  }
+    description:
+      "Intuitive and feature-rich mobile applications for iOS and Android, designed to deliver exceptional user experiences.",
+    href: "/services/mobile-development",
+  },
 ];
 
 export default function ServicesSection() {
   const titleRef = useGSAPAnimation(fadeUpAnimation);
 
   return (
-    <section className="py-16 md:py-20 bg-white" data-testid="services-section">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 
+    <section
+      className="py-16 sm:py-20 bg-white"
+      data-testid="services-section"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+        {/* Title */}
+        <div className="text-center mb-12 sm:mb-16">
+          <h2
             ref={titleRef as any}
-            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-dark-gray mb-4 md:mb-6"
+            className="text-2xl sm:text-3xl lg:text-4xl font-bold text-dark-gray mb-4 sm:mb-6"
             data-testid="text-services-title"
           >
-            Comprehensive Digital Solutions
+            Our Core Services
           </h2>
-          <p className="text-lg md:text-xl text-text-gray max-w-3xl mx-auto" data-testid="text-services-subtitle">
-            From web development to digital marketing, we provide complete solutions for your business growth.
+          <p
+            className="text-base sm:text-lg lg:text-xl text-text-gray max-w-3xl mx-auto leading-relaxed"
+            data-testid="text-services-subtitle"
+          >
+            We deliver end-to-end digital solutions, combining strategy,
+            creativity, and technology to help businesses grow and innovate.
           </p>
         </div>
-        
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => {
             const ServiceIcon = service.icon;
-            
+
             return (
-              <div 
+              <div
                 key={service.title}
-                className="service-card bg-light-gray hover:bg-white rounded-xl p-6 md:p-8 shadow-lg hover:shadow-xl border border-gray-100 transition-all group"
-                data-testid={`card-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}
+                className="service-card bg-light-gray hover:bg-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-xl border border-gray-100 transition-all group"
+                data-testid={`card-service-${service.title
+                  .toLowerCase()
+                  .replace(/\s+/g, "-")}`}
               >
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-orange/10 rounded-lg flex items-center justify-center mb-4 md:mb-6 group-hover:bg-orange/20 transition-colors">
-                  <ServiceIcon className="w-6 h-6 md:w-8 md:h-8 text-orange" />
+                {/* Icon */}
+                <div className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-orange/10 rounded-lg flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-orange/20 transition-colors">
+                  <ServiceIcon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 text-orange" />
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-dark-gray mb-3 md:mb-4" data-testid={`text-service-title-${index}`}>
+
+                {/* Title */}
+                <h3
+                  className="text-lg sm:text-xl font-bold text-dark-gray mb-2 sm:mb-3"
+                  data-testid={`text-service-title-${index}`}
+                >
                   {service.title}
                 </h3>
-                <p className="text-sm md:text-base text-text-gray mb-4 md:mb-6" data-testid={`text-service-description-${index}`}>
+
+                {/* Description */}
+                <p
+                  className="text-sm sm:text-base text-text-gray mb-4 sm:mb-6 leading-relaxed"
+                  data-testid={`text-service-description-${index}`}
+                >
                   {service.description}
                 </p>
-                <Link 
-                  href={service.href} 
-                  className="text-orange font-semibold hover:underline text-sm md:text-base"
+
+                {/* CTA Link */}
+                <Link
+                  href={service.href}
+                  className="text-orange font-semibold hover:underline text-sm sm:text-base"
                   data-testid={`link-service-${index}`}
                 >
                   Learn More →

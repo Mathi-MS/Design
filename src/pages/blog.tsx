@@ -316,45 +316,6 @@ export default function Blog() {
           </div>
         </section>
 
-        {/* Newsletter Signup */}
-        <section
-          className="py-20 bg-navy text-white"
-          data-testid="blog-newsletter"
-        >
-          <div className="container mx-auto px-6">
-            <div className="max-w-2xl mx-auto text-center">
-              <h2
-                className="text-3xl lg:text-4xl font-bold mb-6"
-                data-testid="text-newsletter-title"
-              >
-                Stay Updated
-              </h2>
-              <p
-                className="text-xl text-gray-300 mb-8"
-                data-testid="text-newsletter-subtitle"
-              >
-                Subscribe to our newsletter for the latest insights, tips, and
-                industry updates delivered to your inbox.
-              </p>
-              <form className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 rounded-lg text-dark-gray focus:outline-none focus:ring-2 focus:ring-orange"
-                  required
-                  data-testid="input-newsletter-email"
-                />
-                <button
-                  type="submit"
-                  className="bg-orange hover:bg-orange/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-                  data-testid="button-newsletter-subscribe"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
-          </div>
-        </section>
       </main>
       <Footer />
     </div>

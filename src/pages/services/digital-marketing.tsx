@@ -179,13 +179,13 @@ export default function DigitalMarketing() {
                 >
                   Get Started
                 </Link>
-                <Link
+                {/* <Link
                   href="/portfolio"
                   className="border-2 border-white text-white hover:bg-white hover:text-navy px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-all w-full sm:w-auto text-center"
                   data-testid="button-view-results"
                 >
                   View Results
-                </Link>
+                </Link> */}
               </div>
             </div>
           </div>
@@ -421,13 +421,13 @@ export default function DigitalMarketing() {
               >
                 Start Your Campaign
               </Link>
-              <Link
+              {/* <Link
                 href="/pricing"
                 className="border-2 border-white text-white hover:bg-white hover:text-navy px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-all w-full sm:w-auto text-center"
                 data-testid="button-view-packages"
               >
                 View Packages
-              </Link>
+              </Link> */}
             </div>
           </div>
         </section>

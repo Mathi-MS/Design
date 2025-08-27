@@ -22,19 +22,19 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    content: "+1 (555) 123-4567",
+    content: "+1 (908) 205-1993",
     link: "tel:+15551234567",
   },
   {
     icon: Mail,
     title: "Email",
-    content: "contact@DesignDynasty.com",
-    link: "mailto:contact@DesignDynasty.com",
+    content: "designdynasty84@gmail.com",
+    link: "mailto:designdynasty84@gmail.com",
   },
   {
     icon: Clock,
     title: "Business Hours",
-    content: "Mon - Fri: 9:00 AM - 6:00 PM PST",
+    content: "Mon - Fri: 9:00 AM - 6:00 PM EST",
     link: null,
   },
 ];
@@ -310,7 +310,7 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange focus:border-transparent transition-colors"
-                        placeholder="+1 (555) 123-4567"
+                        placeholder="+1 (908) 205-1993"
                         data-testid="input-contact-phone"
                       />
                     </div>

@@ -1,6 +1,12 @@
 import { useGSAPAnimation } from "@/hooks/use-gsap";
 import { heroAnimations } from "@/lib/gsap-utils";
 import { Link } from "wouter";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, EffectFade } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
 
 export default function HeroSection() {
   const titleRef = useGSAPAnimation(heroAnimations.title);
@@ -8,49 +14,205 @@ export default function HeroSection() {
   const buttonsRef = useGSAPAnimation(heroAnimations.buttons);
 
   return (
-    <section className="gradient-bg text-white py-16 md:py-20 lg:py-32 relative overflow-hidden" data-testid="hero-section">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 
-            ref={titleRef as any}
-            className="text-3xl sm:text-4xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight"
-            data-testid="text-hero-title"
+    <section className="relative w-full h-[90vh] text-white overflow-hidden gradient-bg">
+      {/* Background Carousel */}
+      <Swiper
+        modules={[Autoplay, Pagination, EffectFade]}
+        effect="fade"
+        loop
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
+        pagination={{ clickable: true }}
+        className="absolute inset-0 w-full h-full"
+      >
+        <SwiperSlide>
+          <img
+            src="https://picsum.photos/1920/1080?coding=1"
+            // alt="Web Development"
+            className="w-full h-full object-cover"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src="https://picsum.photos/1920/1080?coding=2"
+            // alt="Mobile Apps"
+            className="w-full h-full object-cover"
+          />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img
+            src="https://picsum.photos/1920/1080?coding=3"
+            // alt="Cloud Solutions"
+            className="w-full h-full object-cover"
+          />
+        </SwiperSlide>
+      </Swiper>
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/80 z-10"></div>
+
+      {/* Content Overlay */}
+      <div className="relative z-20 container mx-auto px-6 h-full flex flex-col justify-center items-center text-center">
+        <h1
+          ref={titleRef as any}
+          className="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-6 leading-tight"
+        >
+          Your Trusted <span className="text-orange">IT Partner</span>
+        </h1>
+        <p
+          ref={subtitleRef as any}
+          className="text-lg sm:text-xl lg:text-2xl text-gray-200 max-w-3xl mb-8"
+        >
+          Empowering businesses with cutting-edge web, mobile, and digital
+          solutions that drive growth and innovation.
+        </p>
+
+        {/* Buttons */}
+        <div
+          ref={buttonsRef as any}
+          className="flex flex-col sm:flex-row gap-4 justify-center"
+        >
+          <Link
+            href="/contact"
+            className="bg-orange hover:bg-orange/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 w-full sm:w-auto"
           >
-            Your Trusted IT Solution Partner
-          </h1>
-          <p 
-            ref={subtitleRef as any}
-            className="text-lg sm:text-xl lg:text-2xl mb-8 md:mb-10 text-gray-300 leading-relaxed max-w-3xl mx-auto"
-            data-testid="text-hero-subtitle"
+            Get Started
+          </Link>
+          <Link
+            href="/services"
+            className="border-2 border-white hover:bg-white hover:text-navy px-8 py-4 rounded-lg font-semibold text-lg transition-all w-full sm:w-auto"
           >
-            We deliver comprehensive digital solutions including web development, digital marketing, e-commerce, and mobile apps tailored for your business growth and success.
-          </p>
-          <div 
-            ref={buttonsRef as any}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-          >
-            <Link
-              href="/contact"
-              className="bg-orange hover:bg-orange/90 text-white px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-all transform hover:scale-105 w-full sm:w-auto text-center"
-              data-testid="button-get-started"
-            >
-              Get Started
-            </Link>
-            <Link
-              href="/portfolio"
-              className="border-2 border-white text-white hover:bg-white hover:text-navy px-6 md:px-8 py-3 md:py-4 rounded-lg font-semibold text-base md:text-lg transition-all w-full sm:w-auto text-center"
-              data-testid="button-view-work"
-            >
-              View Our Work
-            </Link>
-          </div>
+            Explore Services
+          </Link>
         </div>
-      </div>
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 md:top-20 left-4 md:left-10 w-32 h-32 md:w-64 md:h-64 bg-orange rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 md:bottom-20 right-4 md:right-10 w-24 h-24 md:w-48 md:h-48 bg-blue-400 rounded-full blur-3xl"></div>
       </div>
     </section>
   );
 }
+
+
+
+
+
+// import { useState } from "react";
+// import { useGSAPAnimation } from "@/hooks/use-gsap";
+// import { heroAnimations } from "@/lib/gsap-utils";
+// import { Link } from "wouter";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Autoplay, Pagination, EffectFade } from "swiper/modules";
+
+// import "swiper/css";
+// import "swiper/css/pagination";
+// import "swiper/css/effect-fade";
+
+// export default function HeroSection() {
+//   const titleRef = useGSAPAnimation(heroAnimations.title);
+//   const subtitleRef = useGSAPAnimation(heroAnimations.subtitle);
+//   const buttonsRef = useGSAPAnimation(heroAnimations.buttons);
+
+//   // Slide content data
+//   const slides = [
+//     {
+//       id: 1,
+//       title: "Transform Your Business with Web Development",
+//       subtitle:
+//         "We craft scalable, responsive, and modern websites that bring your ideas to life and boost online presence.",
+//       btn1: { label: "Start a Project", link: "/contact" },
+//       btn2: { label: "View Portfolio", link: "/portfolio" },
+//       image: "https://picsum.photos/1920/1080?random=11",
+//     },
+//     {
+//       id: 2,
+//       title: "Build Powerful Mobile Applications",
+//       subtitle:
+//         "Our mobile apps are designed to deliver seamless user experiences, keeping your customers engaged anytime, anywhere.",
+//       btn1: { label: "Get Started", link: "/contact" },
+//       btn2: { label: "See Services", link: "/services" },
+//       image: "https://picsum.photos/1920/1080?random=12",
+//     },
+//     {
+//       id: 3,
+//       title: "Creative Graphic Design Solutions",
+//       subtitle:
+//         "From branding to marketing materials, our designs inspire trust, captivate audiences, and strengthen identity.",
+//       btn1: { label: "Hire Designers", link: "/contact" },
+//       btn2: { label: "Our Work", link: "/portfolio" },
+//       image: "https://picsum.photos/1920/1080?random=13",
+//     },
+//   ];
+
+//   const [activeIndex, setActiveIndex] = useState(0);
+
+//   return (
+//     <section className="relative w-full h-[90vh] text-white overflow-hidden gradient-bg">
+//       {/* Background Carousel */}
+//       <Swiper
+//         modules={[Autoplay, Pagination, EffectFade]}
+//         effect="fade"
+//         loop
+//         autoplay={{ delay: 4000, disableOnInteraction: false }}
+//         pagination={{ clickable: true }}
+//         className="absolute inset-0 w-full h-full"
+//         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+//       >
+//         {slides.map((slide) => (
+//           <SwiperSlide key={slide.id}>
+//             <img
+//               src={slide.image}
+//               alt={slide.title}
+//               className="w-full h-full object-cover"
+//             />
+//           </SwiperSlide>
+//         ))}
+//       </Swiper>
+
+//       {/* Dark Overlay */}
+//       <div className="absolute inset-0 bg-black/80 z-10"></div>
+
+//       {/* Content Overlay */}
+//       <div className="relative z-20 container mx-auto px-6 h-full flex flex-col justify-center items-center text-center">
+//         <h1
+//           ref={titleRef as any}
+//           className="text-4xl sm:text-5xl lg:text-7xl font-extrabold mb-6 leading-tight"
+//         >
+//           {slides[activeIndex].title.split(" ").map((word, i) =>
+//             word.toLowerCase().includes("web") ||
+//             word.toLowerCase().includes("mobile") ||
+//             word.toLowerCase().includes("design") ? (
+//               <span key={i} className="text-orange">
+//                 {word}{" "}
+//               </span>
+//             ) : (
+//               <span key={i}>{word} </span>
+//             )
+//           )}
+//         </h1>
+
+//         <p
+//           ref={subtitleRef as any}
+//           className="text-lg sm:text-xl lg:text-2xl text-gray-200 max-w-3xl mb-8"
+//         >
+//           {slides[activeIndex].subtitle}
+//         </p>
+
+//         {/* Buttons */}
+//         <div
+//           ref={buttonsRef as any}
+//           className="flex flex-col sm:flex-row gap-4 justify-center"
+//         >
+//           <Link
+//             href={slides[activeIndex].btn1.link}
+//             className="bg-orange hover:bg-orange/90 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 w-full sm:w-auto"
+//           >
+//             {slides[activeIndex].btn1.label}
+//           </Link>
+//           <Link
+//             href={slides[activeIndex].btn2.link}
+//             className="border-2 border-white hover:bg-white hover:text-navy px-8 py-4 rounded-lg font-semibold text-lg transition-all w-full sm:w-auto"
+//           >
+//             {slides[activeIndex].btn2.label}
+//           </Link>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// }

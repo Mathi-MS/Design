@@ -9,7 +9,7 @@ import { Check, X, HelpCircle } from "lucide-react";
 const pricingPlans = [
   {
     name: "Starter",
-    price: "$999",
+    price: "$599",
     period: "/project",
     description: "Perfect for small businesses and startups",
     features: [
@@ -33,7 +33,7 @@ const pricingPlans = [
   },
   {
     name: "Business",
-    price: "$2,999",
+    price: "$999",
     period: "/project",
     description: "Most popular choice for growing businesses",
     features: [
@@ -57,7 +57,7 @@ const pricingPlans = [
   },
   {
     name: "Enterprise",
-    price: "$9,999",
+    price: "$1599",
     period: "/project",
     description: "For large organizations with complex needs",
     features: [

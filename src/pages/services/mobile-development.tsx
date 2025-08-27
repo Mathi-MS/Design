@@ -157,7 +157,7 @@ export default function MobileDevelopment() {
         </section>
 
         {/* Technologies Section */}
-        <section
+        {/* <section
           className="py-20 bg-white"
           data-testid="mobile-dev-technologies"
         >
@@ -188,10 +188,10 @@ export default function MobileDevelopment() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* App Portfolio Section */}
-        <section
+        {/* <section
           className="py-20 bg-light-gray"
           data-testid="mobile-dev-portfolio"
         >
@@ -257,7 +257,7 @@ export default function MobileDevelopment() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Development Process Section */}
         <section className="py-20 bg-white" data-testid="mobile-dev-process">
