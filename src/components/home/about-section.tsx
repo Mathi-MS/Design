@@ -18,13 +18,13 @@ export default function AboutSection() {
           <h2
             ref={titleRef as any}
             className="text-2xl sm:text-3xl lg:text-4xl font-bold text-dark-gray mb-4 sm:mb-6"
-            data-testid="text-about-title"
+            data-testid="text-about-title" data-aos="fade-up" 
           >
             Empowering Your Digital Growth
           </h2>
           <p
             className="text-base sm:text-lg lg:text-xl text-text-gray max-w-3xl mx-auto leading-relaxed"
-            data-testid="text-about-subtitle"
+            data-testid="text-about-subtitle" data-aos="fade-up"
           >
             We craft innovative websites, mobile applications, and design solutions 
             that elevate your brand, engage your audience, and accelerate business success.
@@ -32,44 +32,14 @@ export default function AboutSection() {
         </div>
 
         {/* Stats */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
-          <div className="text-center p-4" data-testid="stat-projects">
-            <div
-              ref={projectsCounterRef as any}
-              className="stat-number text-2xl sm:text-3xl lg:text-4xl font-bold text-orange"
-              data-testid="counter-projects"
-            >
-              500+
-            </div>
-            <h3 className="text-lg sm:text-xl font-semibold text-dark-gray mb-1 sm:mb-2">
-              Projects Delivered
-            </h3>
-            <p className="text-sm sm:text-base text-text-gray">
-              From startups to enterprises, we build digital solutions that perform.
-            </p>
-          </div>
-          <div className="text-center p-4" data-testid="stat-clients">
-            <div
-              ref={clientsCounterRef as any}
-              className="stat-number text-2xl sm:text-3xl lg:text-4xl font-bold text-orange"
-              data-testid="counter-clients"
-            >
-              200+
-            </div>
-            <h3 className="text-lg sm:text-xl font-semibold text-dark-gray mb-1 sm:mb-2">
-              Global Clients
-            </h3>
-            <p className="text-sm sm:text-base text-text-gray">
-              Trusted by businesses worldwide to bring their vision to life.
-            </p>
-          </div>
-          <div className="text-center p-4" data-testid="stat-experience">
+        <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12 sm:mb-16">
+                    <div className="text-center p-4" data-testid="stat-experience" data-aos="fade-left">
             <div
               ref={experienceCounterRef as any}
               className="stat-number text-2xl sm:text-3xl lg:text-4xl font-bold text-orange"
               data-testid="counter-experience"
             >
-              8+
+              1+
             </div>
             <h3 className="text-lg sm:text-xl font-semibold text-dark-gray mb-1 sm:mb-2">
               Years of Experience
@@ -78,11 +48,29 @@ export default function AboutSection() {
               A proven track record of building impactful digital solutions.
             </p>
           </div>
+          <div className="text-center p-4" data-testid="stat-clients" data-aos="fade-right">
+            <div
+              ref={clientsCounterRef as any}
+              className="stat-number text-2xl sm:text-3xl lg:text-4xl font-bold text-orange"
+              data-testid="counter-clients"
+            >
+              98%
+            </div>
+            <h3 className="text-lg sm:text-xl font-semibold text-dark-gray mb-1 sm:mb-2">
+              Client Satisfaction
+
+            </h3>
+            <p className="text-sm sm:text-base text-text-gray">
+              Consistently exceeding expectations
+
+
+            </p>
+          </div>
         </div>
 
         {/* Image + Content */}
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div ref={imageRef as any}>
+          <div ref={imageRef as any} data-aos="fade-left">
             <img
               src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&h=600"
               alt="Creative team collaboration"
@@ -90,7 +78,7 @@ export default function AboutSection() {
               data-testid="img-team-collaboration"
             />
           </div>
-          <div ref={contentRef as any}>
+          <div ref={contentRef as any} data-aos="fade-right">
             <h3
               className="text-xl sm:text-2xl font-bold text-dark-gray mb-4 sm:mb-6"
               data-testid="text-individuals-title"

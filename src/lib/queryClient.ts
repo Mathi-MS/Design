@@ -12,12 +12,20 @@ export async function apiRequest(
   method: string,
   url: string,
   data?: unknown | undefined,
+  config?: RequestInit,
 ): Promise<Response> {
+    const isFormData = data instanceof FormData;
+
   const res = await fetch(url, {
     method,
-    headers: data ? { "Content-Type": "application/json" } : {},
-    body: data ? JSON.stringify(data) : undefined,
+    headers: !isFormData && data ? { "Content-Type": "application/json" } : {},
+    body: data
+      ? isFormData
+        ? (data as FormData) // use FormData directly
+        : JSON.stringify(data)
+      : undefined,
     credentials: "include",
+    ...config,
   });
 
   await throwIfResNotOk(res);

@@ -95,13 +95,13 @@ export default function TestimonialsSection() {
           <h2
             ref={titleRef as any}
             className="text-2xl sm:text-3xl lg:text-4xl font-bold text-dark-gray mb-4 md:mb-6"
-            data-testid="text-testimonials-title"
+            data-testid="text-testimonials-title" data-aos="fade-up"
           >
             What Our Clients Say
           </h2>
           <p
             className="text-base sm:text-lg lg:text-xl text-text-gray max-w-3xl mx-auto leading-relaxed"
-            data-testid="text-testimonials-subtitle"
+            data-testid="text-testimonials-subtitle" data-aos="fade-up"
           >
             We pride ourselves on building lasting relationships. Here’s what
             our clients say about working with us.

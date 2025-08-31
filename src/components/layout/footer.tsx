@@ -14,7 +14,7 @@ export default function Footer() {
               We craft high-performing websites, engaging mobile apps, and
               impactful designs that help businesses stand out and scale.
             </p>
-            <div className="flex space-x-3">
+            {/* <div className="flex space-x-3">
               <a
                 href="#"
                 aria-label="Twitter"
@@ -36,7 +36,7 @@ export default function Footer() {
               >
                 <Linkedin className="w-5 h-5" />
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Services */}
@@ -127,11 +127,11 @@ export default function Footer() {
               </li>
               <li className="flex items-start space-x-3">
                 <Phone className="w-5 h-5 text-orange mt-1" />
-                <span>+91 98765 43210</span>
+                <span>+1 (908) 205-1993</span>
               </li>
               <li className="flex items-start space-x-3">
                 <Mail className="w-5 h-5 text-orange mt-1" />
-                <span>support@designdynasty.com</span>
+                <span>designdynasty84@gmail.com</span>
               </li>
             </ul>
           </div>

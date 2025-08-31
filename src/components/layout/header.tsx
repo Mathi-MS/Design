@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
+import Image from "../../images/logonew.png";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(null);
+  const [openMobileSubmenu, setOpenMobileSubmenu] = useState<string | null>(
+    null
+  );
   const [location] = useLocation();
 
   const navItems = [
@@ -22,7 +25,7 @@ export default function Header() {
         { href: "/services/mobile-development", label: "Mobile Development" },
       ],
     },
-    { href: "/blog", label: "Blog" },
+    // { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -37,9 +40,12 @@ export default function Header() {
       <div className="container mx-auto px-6 py-2">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
+          <div className="flex items-center gap-2">
+            <img src={Image} alt="logo" className="w-[35px]"/>
           <Link href="/" className="flex items-center">
             <div className="text-2xl font-bold">DesignDynasty</div>
           </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
@@ -51,7 +57,9 @@ export default function Header() {
                       isActive(item.href) ? "text-orange" : ""
                     }`}
                     onClick={() =>
-                      setOpenDropdown(openDropdown === item.href ? null : item.href)
+                      setOpenDropdown(
+                        openDropdown === item.href ? null : item.href
+                      )
                     }
                   >
                     {item.label}
@@ -112,7 +120,11 @@ export default function Header() {
               if (!next) setOpenMobileSubmenu(null);
             }}
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
 

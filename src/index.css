@@ -57,8 +57,10 @@
   --spacing: 0.25rem;
 
   /* Custom colors matching the design image */
-  --navy: hsl(217 33% 17%);
-  --orange: hsl(20 94% 58%);
+  /* --navy: hsl(217 33% 17%); */
+  --navy: #004195;
+  /* --orange: hsl(20 94% 58%); */
+  --orange: #10c95e;
   --light-gray: hsl(210 40% 98%);
   --text-gray: hsl(215 13% 65%);
   --dark-gray: hsl(217 33% 17%);
@@ -124,6 +126,7 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
     font-family: "Plus Jakarta Sans", sans-serif;
+    overflow-x: hidden;
   }
 }
 
@@ -172,8 +175,128 @@
   .swiper-button-next {
     display: none;
   }
-  .swiper-pagination-bullet-active{
-    background-color:var(--orange);
+  .swiper-pagination-bullet-active {
+    background-color: var(--orange);
   }
 }
 /* swiper-pagination-bullet swiper-pagination-bullet-active */
+
+.servicesBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.servicesBoxes {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 8px;
+  height: 400px;
+  width: 250px;
+  overflow: hidden;
+  transition: width 0.5s ease;
+  cursor: pointer;
+}
+
+/* Default collapsed */
+.servicesBoxes .servicesContent {
+  position: absolute;
+  inset: 0;
+  background: #000000ba;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.servicesBoxes .servicesContent h4 {
+  rotate: -90deg;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 120px;
+}
+
+/* Hidden content by default */
+.servicesBoxes .servicesContentTwo {
+  position: absolute;
+  inset: 0;
+  background: #000000ba;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.servicesBoxes .servicesContentTwo h3 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.servicesBoxes .servicesContentTwo a a {
+  font-size: 14px;
+  margin-bottom: 10px;
+  border: solid 1px var(--orange);
+  width:"max-content";
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  margin: 10px 0px 0px 0px;
+  display: inline-block;
+}
+.servicesBoxes .servicesContentTwo a a:hover{
+background: var(--orange);
+}
+.servicesBoxes .servicesContentTwo h3 span {
+  color: var(--orange);
+}
+
+/* Active (expanded) card */
+.servicesBoxes.active {
+  width: 800px; /* expanded width */
+}
+.servicesBoxes.active .servicesContent {
+  display: none;
+}
+.servicesBoxes.active .servicesContentTwo {
+  opacity: 1;
+}
+
+@media (max-width: 1024px) {
+  .servicesBox {
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+  }
+  .servicesBoxes,
+  .servicesBoxes.active {
+    width: 45%;   
+    height: 300px; 
+  }
+  .servicesBoxes .servicesContent h4 {
+    rotate: 0deg;
+    margin-top: 0;
+    font-size: 24px;
+  }
+}
+@media (max-width: 750px) {
+  .servicesBox {
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+  }
+  .servicesBoxes,
+  .servicesBoxes.active {
+    width: 100%;   
+    height: 300px; 
+  }
+  .servicesBoxes .servicesContent h4 {
+    rotate: 0deg;
+    margin-top: 0;
+    font-size: 24px;
+  }
+}
+.herosection{
+  position: sticky;
+  top: 0px;
+}

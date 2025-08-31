@@ -7,6 +7,9 @@ import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import bannerone from "../../images/bannerone.jpg"
+import bannertwo from "../../images/bannertwo.jpg"
+import bannerthree from "../../images/bannerthree.jpg"
 
 export default function HeroSection() {
   const titleRef = useGSAPAnimation(heroAnimations.title);
@@ -14,7 +17,7 @@ export default function HeroSection() {
   const buttonsRef = useGSAPAnimation(heroAnimations.buttons);
 
   return (
-    <section className="relative w-full h-[90vh] text-white overflow-hidden gradient-bg">
+    <section className="relative w-full h-[90vh] text-white overflow-hidden gradient-bg herosection">
       {/* Background Carousel */}
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
@@ -26,21 +29,21 @@ export default function HeroSection() {
       >
         <SwiperSlide>
           <img
-            src="https://picsum.photos/1920/1080?coding=1"
+            src={bannerone}
             // alt="Web Development"
             className="w-full h-full object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://picsum.photos/1920/1080?coding=2"
+            src={bannertwo}
             // alt="Mobile Apps"
             className="w-full h-full object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
-            src="https://picsum.photos/1920/1080?coding=3"
+            src={bannerthree}
             // alt="Cloud Solutions"
             className="w-full h-full object-cover"
           />
@@ -48,7 +51,7 @@ export default function HeroSection() {
       </Swiper>
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/80 z-10"></div>
+      <div className="absolute inset-0 bg-black/60 z-10"></div>
 
       {/* Content Overlay */}
       <div className="relative z-20 container mx-auto px-6 h-full flex flex-col justify-center items-center text-center">

@@ -1,4 +1,4 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -51,8 +51,51 @@ function Router() {
 
 import ScrollToTop from "./components/scroll-to-top";
 
+import { useEffect } from "react";
+import AOS from "aos";
 
 function App() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    AOS.init({
+      duration: 700,
+      easing: "ease-out-cubic",
+      once: true,
+      offset: 40,
+    });
+
+    // Add default AOS to all section elements without explicit data-aos
+    document.querySelectorAll("section:not([data-aos])").forEach((el) => {
+      el.setAttribute("data-aos", "fade-up");
+    });
+    // Also auto-animate any element explicitly marked with data-animate
+    document
+      .querySelectorAll("[data-animate]:not([data-aos])")
+      .forEach((el) => {
+        el.setAttribute("data-aos", "fade-up");
+      });
+
+    try {
+      AOS.refreshHard();
+    } catch {}
+  }, []);
+
+  // Refresh AOS and auto-tag sections whenever route changes
+  useEffect(() => {
+    try {
+      document.querySelectorAll("section:not([data-aos])").forEach((el) => {
+        el.setAttribute("data-aos", "fade-up");
+      });
+      document
+        .querySelectorAll("[data-animate]:not([data-aos])")
+        .forEach((el) => {
+          el.setAttribute("data-aos", "fade-up");
+        });
+      AOS.refreshHard();
+    } catch {}
+  }, [location]);
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>

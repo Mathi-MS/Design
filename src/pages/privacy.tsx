@@ -100,7 +100,7 @@ const PrivacyPolicy = () => {
           </p>
           <div className="mt-4 bg-gray-100 p-6 rounded-lg shadow-md">
             <p className="font-medium">📧 Email: support@yourcompany.com</p>
-            <p className="font-medium">📞 Phone: +91 98765 43210</p>
+            <p className="font-medium">📞 Phone: +1 (908) 205-1993</p>
             <p className="font-medium">🏢 Address: Chennai, Tamil Nadu, India</p>
           </div>
         </section>

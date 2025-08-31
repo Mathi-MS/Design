@@ -16,7 +16,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Address",
-    content: "123 Tech Street, Innovation District, CA 90210",
+    content: "8197, Peggy CT, Zionsville -46077",
     link: "https://maps.google.com",
   },
   {
@@ -78,41 +78,59 @@ export default function Contact() {
     }
   }, []);
 
-  const submitContact = useMutation({
-    mutationFn: (data: typeof formData) =>
-      apiRequest("POST", "/api/contact", {
-        name: data.name,
-        email: data.email,
-        service: data.service,
-        message: `Phone: ${data.phone}\nCompany: ${data.company}\nBudget: ${data.budget}\nTimeline: ${data.timeline}\n\nMessage: ${data.message}`,
-      }),
-    onSuccess: () => {
-      toast({
-        title: "Success!",
-        description:
-          "Thank you for your message! We'll get back to you within 24 hours.",
-      });
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        service: "",
-        budget: "",
-        timeline: "",
-        message: "",
-        attachments: [],
-      });
-    },
-    onError: () => {
-      toast({
-        title: "Error",
-        description:
-          "Failed to send message. Please try again or contact us directly.",
-        variant: "destructive",
-      });
-    },
-  });
+const submitContact = useMutation({
+  mutationFn: async (data: typeof formData) => {
+    const formDataToSend = new FormData();
+
+    formDataToSend.append("Full Name", data.name);
+    formDataToSend.append("Email Address", data.email);
+    formDataToSend.append("Phone Number", data.phone);
+    formDataToSend.append("Company", data.company);
+    formDataToSend.append("Service Needed", data.service);
+    formDataToSend.append("Project Details", data.message);
+
+    // Attachments (only if valid)
+    data.attachments.forEach((file) => {
+      if (file.size <= 2 * 1024 * 1024) {
+        formDataToSend.append("Attachments", file);
+      }
+    });
+for (const [key, value] of formDataToSend.entries()) {
+  console.log(key, value);
+}
+    
+    return apiRequest("POST", "/api/contact", formDataToSend, {
+    });
+  },
+  onSuccess: () => {
+    toast({
+      title: "Success!",
+      description:
+        "Thank you for your message! We'll get back to you within 24 hours.",
+    });
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      company: "",
+      service: "",
+      budget: "",
+      timeline: "",
+      message: "",
+      attachments: [],
+    });
+  },
+  onError: () => {
+    toast({
+      title: "Error",
+      description:
+        "Failed to send message. Please try again or contact us directly.",
+      variant: "destructive",
+    });
+  },
+});
+
+
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -131,7 +149,8 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-white" data-testid="page-contact">
+    <>
+      <div className="min-h-screen bg-white" data-testid="page-contact">
       <Header />
       <main>
         {/* Hero Section */}
@@ -362,55 +381,6 @@ export default function Contact() {
                     </select>
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="budget"
-                        className="block text-sm font-medium text-dark-gray mb-2"
-                      >
-                        Budget Range
-                      </label>
-                      <select
-                        id="budget"
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange focus:border-transparent transition-colors"
-                        data-testid="select-contact-budget"
-                      >
-                        <option value="">Select budget range</option>
-                        <option value="under-1k">Under $1,000</option>
-                        <option value="1k-5k">$1,000 - $5,000</option>
-                        <option value="5k-10k">$5,000 - $10,000</option>
-                        <option value="10k-25k">$10,000 - $25,000</option>
-                        <option value="over-25k">Over $25,000</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="timeline"
-                        className="block text-sm font-medium text-dark-gray mb-2"
-                      >
-                        Timeline
-                      </label>
-                      <select
-                        id="timeline"
-                        name="timeline"
-                        value={formData.timeline}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange focus:border-transparent transition-colors"
-                        data-testid="select-contact-timeline"
-                      >
-                        <option value="">Select timeline</option>
-                        <option value="asap">ASAP</option>
-                        <option value="1-month">Within 1 month</option>
-                        <option value="3-months">Within 3 months</option>
-                        <option value="6-months">Within 6 months</option>
-                        <option value="flexible">Flexible</option>
-                      </select>
-                    </div>
-                  </div>
-
                   <div>
                     <label
                       htmlFor="message"
@@ -435,22 +405,62 @@ export default function Contact() {
                     <label className="block text-sm font-medium text-dark-gray mb-2">
                       Attachments (Optional)
                     </label>
-                    <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-orange transition-colors">
-                      <FileUp className="w-8 h-8 text-gray-400 mx-auto mb-2" />
-                      <p className="text-text-gray text-sm">
-                        Drop files here or click to upload
-                      </p>
-                      <p className="text-text-gray text-xs mt-1">
-                        Supported formats: PDF, DOC, PNG, JPG (Max 10MB)
-                      </p>
-                      <input
-                        type="file"
-                        multiple
-                        className="hidden"
-                        accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
-                        data-testid="input-contact-attachments"
-                      />
-                    </div>
+                    <div
+  className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-orange transition-colors cursor-pointer"
+  onClick={() => document.getElementById("attachments")?.click()}
+>
+  <FileUp className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+  <p className="text-text-gray text-sm">
+    Drop files here or click to upload
+  </p>
+  <p className="text-text-gray text-xs mt-1">
+    Supported formats: PDF, DOC, PNG, JPG (Max 10MB)
+  </p>
+
+  <input
+    id="attachments"
+    type="file"
+    multiple
+    className="hidden"
+    accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
+    onChange={(e) => {
+  const files = Array.from(e.target.files || []);
+  const validFiles = files.filter((file) => {
+    if (file.size > 2 * 1024 * 1024) {
+      toast({
+        title: "File too large",
+        description: `${file.name} exceeds 2MB limit.`,
+        variant: "destructive",
+      });
+      return false;
+    }
+    return true;
+  });
+
+  setFormData((prev) => ({
+    ...prev,
+    attachments: validFiles,
+  }));
+}}
+
+    data-testid="input-contact-attachments"
+  />
+
+  {/* Show selected files */}
+  {formData.attachments.length > 0 && (
+    <div className="mt-4 text-left">
+      <p className="text-sm font-medium text-dark-gray mb-2">
+        Selected files:
+      </p>
+      <ul className="list-disc list-inside text-sm text-text-gray">
+        {formData.attachments.map((file, index) => (
+          <li key={index}>{file.name}</li>
+        ))}
+      </ul>
+    </div>
+  )}
+</div>
+
                   </div>
 
                   <button
@@ -475,30 +485,23 @@ export default function Contact() {
                 className="text-3xl font-bold text-dark-gray mb-4"
                 data-testid="text-map-title"
               >
-                Visit Our Office
+               Our Location
               </h2>
-              <p className="text-text-gray" data-testid="text-map-description">
-                Located in the heart of the Innovation District
-              </p>
             </div>
             <div
               className="bg-gray-300 rounded-xl h-96 flex items-center justify-center"
               data-testid="map-placeholder"
             >
-              <div className="text-center">
-                <MapPin className="w-12 h-12 text-gray-500 mx-auto mb-4" />
-                <p className="text-gray-600">
-                  Interactive map would be embedded here
-                </p>
-                <p className="text-sm text-gray-500">
-                  123 Tech Street, Innovation District, CA 90210
-                </p>
-              </div>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3057.1741630093647!2d-86.31634472529237!3d39.98221308197296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88135440e6c375bb%3A0x64c8c024606d6f1d!2s8197%20Peggy%20Ct%2C%20Zionsville%2C%20IN%2046077%2C%20USA!5e0!3m2!1sen!2sin!4v1756655175444!5m2!1sen!2sin" width="100%" height="100%"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
           </div>
         </section>
       </main>
+{/* <div className="elfsight-app-b82afd7c-a99e-4388-b77f-9c7ce9f9e2b4" data-elfsight-app-lazy></div> */}
       <Footer />
     </div>
+
+    </>
+    
   );
 }

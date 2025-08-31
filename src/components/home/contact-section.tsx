@@ -61,13 +61,13 @@ export default function ContactSection() {
         <div className="text-center mb-16">
           <h2
             className="text-3xl lg:text-5xl font-bold text-dark-gray mb-6 leading-snug"
-            data-testid="text-contact-title"
+            data-testid="text-contact-title" data-aos="fade-up"
           >
             Let’s Build Something <span className="text-orange">Great</span> Together
           </h2>
           <p
             className="text-lg lg:text-xl text-text-gray max-w-2xl mx-auto leading-relaxed"
-            data-testid="text-contact-subtitle"
+            data-testid="text-contact-subtitle" data-aos="fade-up"
           >
             Have a project in mind? Share your vision with us and our experts
             will craft tailored solutions that drive results.
@@ -94,9 +94,9 @@ export default function ContactSection() {
                   <MapPin className="w-6 h-6 text-orange" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-dark-gray">Office Address</h4>
+                  <h4 className="font-semibold text-dark-gray">Address</h4>
                   <p className="text-text-gray">
-                    123 Tech Street, Innovation District, CA 90210
+                    8197, Peggy CT, Zionsville -46077
                   </p>
                 </div>
               </div>

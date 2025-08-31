@@ -147,7 +147,7 @@ export default function GraphicDesign() {
         </section>
 
         {/* Tools Section */}
-        <section className="py-20 bg-white" data-testid="graphic-design-tools">
+        {/* <section className="py-20 bg-white" data-testid="graphic-design-tools">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2
@@ -175,10 +175,10 @@ export default function GraphicDesign() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Portfolio Section */}
-        <section
+        {/* <section
           className="py-20 bg-light-gray"
           data-testid="graphic-design-portfolio"
         >
@@ -229,7 +229,7 @@ export default function GraphicDesign() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Process Section */}
         <section

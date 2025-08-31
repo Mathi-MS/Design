@@ -40,10 +40,10 @@ const FAQ = () => {
     <section className="relative bg-gradient-to-br from-navy to-gray-900 min-h-screen py-12 sm:py-16 px-4 sm:px-6 md:px-8 text-white">
       {/* Title */}
       <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12 px-2">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold" data-aos="fade-up">
           Frequently Asked Questions
         </h2>
-        <p className="mt-3 text-gray-300 text-sm sm:text-base">
+        <p className="mt-3 text-gray-300 text-sm sm:text-base" data-aos="fade-up">
           Quick answers about our web, mobile, and design services.
         </p>
       </div>

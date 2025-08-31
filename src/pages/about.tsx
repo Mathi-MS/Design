@@ -172,7 +172,7 @@ export default function About() {
                 data-testid="text-about-hero-subtitle"
               >
                 Empowering businesses with innovative technology solutions since
-                2016. We're more than a service provider - we're your technology
+                2024. We're more than a service provider - we're your technology
                 partners.
               </p>
             </div>
@@ -189,13 +189,13 @@ export default function About() {
               <div className="text-center mb-12 md:mb-16">
                 <h2
                   className="text-2xl sm:text-3xl lg:text-4xl font-bold text-dark-gray mb-6 md:mb-8"
-                  data-testid="text-mission-title"
+                  data-testid="text-mission-title" data-aos="fade-up"
                 >
                   Our Mission & Vision
                 </h2>
                 <p
                   className="text-lg md:text-xl text-text-gray leading-relaxed max-w-4xl mx-auto"
-                  data-testid="text-mission-description"
+                  data-testid="text-mission-description" data-aos="fade-up"
                 >
                   To deliver cutting-edge IT solutions that transform businesses
                   and drive growth. We believe in the power of technology to
@@ -204,8 +204,8 @@ export default function About() {
                 </p>
               </div>
 
-              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16">
-                <div
+              <div className="grid sm:grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-16">
+                {/* <div
                   className="text-center bg-white p-6 rounded-xl shadow-lg"
                   data-testid="stat-projects-about"
                 >
@@ -222,8 +222,8 @@ export default function About() {
                   <p className="text-sm md:text-base text-text-gray">
                     Successfully delivered across all industries
                   </p>
-                </div>
-                <div
+                </div> */}
+                {/* <div
                   className="text-center bg-white p-6 rounded-xl shadow-lg"
                   data-testid="stat-clients-about"
                 >
@@ -240,17 +240,17 @@ export default function About() {
                   <p className="text-sm md:text-base text-text-gray">
                     Trusted by businesses worldwide
                   </p>
-                </div>
+                </div> */}
                 <div
                   className="text-center bg-white p-6 rounded-xl shadow-lg"
-                  data-testid="stat-experience-about"
+                  data-testid="stat-experience-about" data-aos="fade-left"
                 >
                   <div
                     ref={experienceCounterRef as any}
                     className="stat-number"
                     data-testid="counter-experience-about"
                   >
-                    8+
+                    1+
                   </div>
                   <h3 className="text-lg md:text-xl font-semibold text-dark-gray mb-2">
                     Years of Excellence
@@ -261,7 +261,7 @@ export default function About() {
                 </div>
                 <div
                   className="text-center bg-white p-6 rounded-xl shadow-lg"
-                  data-testid="stat-satisfaction-about"
+                  data-testid="stat-satisfaction-about" data-aos="fade-right"
                 >
                   <div className="stat-number">98%</div>
                   <h3 className="text-lg md:text-xl font-semibold text-dark-gray mb-2">
@@ -305,7 +305,7 @@ export default function About() {
         </section>
 
         {/* Achievements Section */}
-        <section
+        {/* <section
           className="py-16 md:py-20 bg-white"
           data-testid="achievements-section"
         >
@@ -364,7 +364,7 @@ export default function About() {
               })}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Team Section */}
         {/* <section
