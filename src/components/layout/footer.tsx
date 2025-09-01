@@ -123,7 +123,7 @@ export default function Footer() {
             <ul className="space-y-4 text-gray-300">
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-orange mt-1" />
-                <span>123 Innovation Street, Tech City, India</span>
+                <span>8197,Peggy ct, zionsville, Indiana-46077</span>
               </li>
               <li className="flex items-start space-x-3">
                 <Phone className="w-5 h-5 text-orange mt-1" />
