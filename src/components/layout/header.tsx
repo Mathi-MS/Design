@@ -43,7 +43,7 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <img src={Image} alt="logo" className="w-[35px]"/>
           <Link href="/" className="flex items-center">
-            <div className="text-2xl font-bold">DesignDynasty</div>
+            <div className="text-2xl font-bold">esignDynasty</div>
           </Link>
           </div>
 
