@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X, ChevronDown } from "lucide-react";
-import Image from "../../images/download.htm";
+import Image from "../../images/logonew.png";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -43,7 +43,7 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <img src={Image} alt="logo" className="w-[35px]"/>
           <Link href="/" className="flex items-center">
-            <div className="text-2xl font-bold">esignDynasty</div>
+            <div className="text-2xl font-bold">DesignDynasty</div>
           </Link>
           </div>
 
