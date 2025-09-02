@@ -39,7 +39,7 @@ export default function AboutSection() {
               className="stat-number text-2xl sm:text-3xl lg:text-4xl font-bold text-orange"
               data-testid="counter-experience"
             >
-              1+
+              8+
             </div>
             <h3 className="text-lg sm:text-xl font-semibold text-dark-gray mb-1 sm:mb-2">
               Years of Experience
