@@ -144,7 +144,7 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   className="w-[100%] px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange focus:border-transparent transition-all"
-                  placeholder="John Doe"
+                  placeholder="Your Name"
                   required
                   data-testid="input-name"
                 />
